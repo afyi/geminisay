@@ -42,7 +42,7 @@ module.exports = async (request, response) => {
     return response.status(204).end();
   }
   // 判定参数是否正常
-  if (SUPABASE_URL == '' || SUPABASE_KEY == '' ) {
+  if (SUPABASE_URL == '' || SUPABASE_KEY == '') {
     return response.json({ error: '环境配置不正确，请阅读文档配置对应的环境变量' }).status(403);
   }
   // 读取传送来slug
@@ -75,6 +75,11 @@ module.exports = async (request, response) => {
   }
   // 数据不存在，就从去远程拿
   if (data.length === 0) {
+    // 判定是否有配置的 GeminiKEY
+    if (GEMINIKEY == '') {
+      console.error("未配置 GeminiKEY，请检查当前环境中否有 GeminiKEY");
+      return response.json({ error: 'GEMINI配置不正确，请阅读文档配置对应的环境变量' }).status(403);
+    }
     // 获取来源页
     const referrer = req.headers['referer'] || req.headers['referrer'];
     // 如果来源页为空
