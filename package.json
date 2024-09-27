@@ -1,0 +1,16 @@
+{
+  "name": "gsay-vercel",
+  "version": "1.0.0",
+  "description": "a simple ai comment tool by gemini for vercel",
+  "homepage": "https://github.com/afyi/gsay-vercel",
+  "author": "alex au <xux85@msn.com> (https://github.com/afyi)",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afyi/gsay-vercel.git"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.45.4"
+  }
+}
